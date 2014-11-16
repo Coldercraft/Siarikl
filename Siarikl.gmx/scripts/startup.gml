@@ -16,7 +16,8 @@ global.healthregen = 0.1;
 global.cmdhistory = "";
 
 
-global.keybindings = "<";
+global.keybindings_list = " "
+
 //Keyboard converter thank you ZeCatox on reddit
 global.keys = ds_map_create();
 global.keys[?"vk_left"] = vk_left;

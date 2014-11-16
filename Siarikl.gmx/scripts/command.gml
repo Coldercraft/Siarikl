@@ -114,9 +114,15 @@ if cmd[0] == "bind"{
         cmd_return("Key not found","error");
         exit;
     }
-
+        
         global.keybindings[key] = string_copy(argument0,string_length(cmd[0]+cmd[1])+3,string_length(argument0)-string_length(cmd[0]+cmd[1])+1);
-        global.keybindings_list = global.keybindings_list+string(key)+" ";
+        if global.keybindings[key] == noone{
+            global.keybindings_list = global.keybindings_list+string(key)+" ";
+            cmd_return("Bound " + string_copy(argument0,string_length(cmd[0]+cmd[1])+3,string_length(argument0)-string_length(cmd[0]+cmd[1])+1) + " to " + string(key),"report");
+        }else{
+            cmd_return("Rebound " + string_copy(argument0,string_length(cmd[0]+cmd[1])+3,string_length(argument0)-string_length(cmd[0]+cmd[1])+1) + " to " + string(key),"report");
+        
+        }
 
     
 }
